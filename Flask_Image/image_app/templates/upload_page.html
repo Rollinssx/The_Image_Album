@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block title %}
+    Upload Page
+{% endblock title %}
+{% block content %}
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/profile_pics/upload_image_bg.jpeg');
+            background-size: 120% auto;
+            background-position: 50% auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(44, 62, 80, 0.8); /* Dark blue container with opacity */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .txtb {
+            margin-bottom: 10px;
+        }
+
+        .txtb input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            background: #f2f2f2;
+            border: none;
+            outline: none;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .logbtn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logbtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Image</h1>
+        <form action="{{ url_for('upload_page') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+{% endblock content%}
+
+
